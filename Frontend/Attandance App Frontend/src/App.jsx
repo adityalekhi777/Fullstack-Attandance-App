@@ -1,10 +1,11 @@
 import React from 'react';
 import AttendanceList from './components/AttendanceList';
+import Datepicker from './components/Datepicker';
 
 export default function App() {
   return (
     <>
-      <div>App</div>
+      <Datepicker/>
       <AttendanceList />
     </>
   );
