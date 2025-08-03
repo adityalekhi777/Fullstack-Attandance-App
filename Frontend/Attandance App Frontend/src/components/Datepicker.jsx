@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 
-function Datepicker() {
-  const [date, setDate] = useState(null);
+function Datepicker({ setDate }) {
+  const [localDate, setLocalDate] = useState('');
 
-  console.log(date);
+  const handleSelectDate = () => {
+    if (!localDate) {
+      alert('Please choose a date first.');
+      return;
+    }
+    setDate(localDate); // Pass selected date to parent
+  };
+
   return (
     <div className='datepicker'>
       <h1>Select a date</h1>
-
       <input
         type='date'
-        name='date'
-        onChange={(e) => setDate(e.target.value)}
+        value={localDate}
+        onChange={(e) => setLocalDate(e.target.value)}
       />
-      <button>Search</button>
+      <button onClick={handleSelectDate}>Select Date</button>
     </div>
   );
 }

@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AttendanceList from './components/AttendanceList';
 import Datepicker from './components/Datepicker';
 
 export default function App() {
+  const [selectedDate, setSelectedDate] = useState(null);
+
   return (
     <>
-      <Datepicker/>
-      <AttendanceList />
+      <Datepicker setDate={setSelectedDate} />
+      {selectedDate && <AttendanceList selectedDate={selectedDate} />}
     </>
   );
 }
-
-
-// https://www.youtube.com/watch?v=9BTN3gLXLG4
